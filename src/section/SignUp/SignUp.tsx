@@ -31,7 +31,7 @@ export default function SignUp() {
   const registerFailedToast = () =>
     toast("Registration Failed", {
       type: "error",
-    });
+    })
 
   const registerSuccessToast = () =>
     toast("Registration Successfull", {
