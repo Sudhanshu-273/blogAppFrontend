@@ -5,6 +5,8 @@ import { posts } from "../../../dummy";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 
+const API_HOST = process.env.API_HOST
+
 export default function HomePage() {
   const [posts, setPost] = useState([
     {
@@ -24,7 +26,7 @@ export default function HomePage() {
   const getData = async () => {
     const token = localStorage.getItem("token");
     console.log(token);
-    const res = await axios.get("http://localhost:8080/posts/all", {
+    const res = await axios.get(`${API_HOST}/posts/all`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

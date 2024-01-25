@@ -19,12 +19,14 @@ export default function Posts() {
     },
   ]);
 
+  const API_HOST = process.env.API_HOST;
+
   const blog = posts[0]?.author || "No Blogs";
 
   const getData = async () => {
     const token = localStorage.getItem("token");
     console.log(token);
-    const res = await axios.get("http://localhost:8080/posts", {
+    const res = await axios.get(`${API_HOST}/posts`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

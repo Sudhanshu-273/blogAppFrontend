@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
   ```
 */
 export default function CreatePost() {
+      const API_HOST = process.env.API_HOST;
 
   const router = useRouter();
 
@@ -45,7 +46,7 @@ export default function CreatePost() {
   const uploadPost = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.post("http://localhost:8080/posts/new", post, {
+      const res = await axios.post(`${API_HOST}/posts/new`, post, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

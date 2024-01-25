@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
 
+const API_HOST = process.env.API_HOST
+
 export default function Testimonials() {
   const [quoteData, setQuoteData] = useState({
     title: "",

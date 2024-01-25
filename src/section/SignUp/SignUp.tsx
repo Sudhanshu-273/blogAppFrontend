@@ -6,6 +6,8 @@ import { FormEvent, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const API_HOST = process.env.API_HOST
+
 /*
   This example requires some changes to your config:
   
@@ -42,7 +44,7 @@ export default function SignUp() {
     try {
       console.log(user);
       const res = await axios.post(
-        "http://localhost:8080/auth/create-account",
+        `${API_HOST}/auth/create-account`,
         user
       );
       registerSuccessToast();

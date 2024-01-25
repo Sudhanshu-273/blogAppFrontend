@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-
+const API_HOST = process.env.API_HOST
 /*
   This example requires some changes to your config:
   
@@ -82,7 +82,7 @@ export default function CreateProfile() {
 
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:8080/profile/update",
+        `${API_HOST}/profile/update`,
         prof,
         {
           headers: {

@@ -7,6 +7,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const API_HOST = process.env.API_HOST
+
 // import { useToasts } from "react-toast-notifications2";
 
 /*
@@ -43,14 +45,14 @@ export default function Login() {
   const login = async () => {
     try {
       console.log(user);
-      const res = await axios.post("http://localhost:8080/auth/login", user);
+      const res = await axios.post(`${API_HOST}/auth/login`, user);
       // console.log(res);
       const token = res.data.accessToken;
       localStorage.setItem("token", token);
       console.log(token);
       loginSuccessToast();
       const result = await axios.get(
-        "http://localhost:8080/profile/completed",
+        `${API_HOST}/profile/completed`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

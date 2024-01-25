@@ -15,6 +15,7 @@ export default function Profile() {
     designation: "",
     email: "",
     blogs: 0,
+    image: ""
   });
 
   const getData = async () => {
@@ -39,6 +40,7 @@ export default function Profile() {
         designation: data.designation,
         email: data.email,
         blogs: data.blogs,
+        image: data.image
       })
     } catch (error) {
       console.log(error);
@@ -53,52 +55,63 @@ export default function Profile() {
   return (
     <>
       <Navbar tab={3} />
-      <div className="mx-auto max-w-md mt-10 p-6 bg-white rounded-md shadow-md">
-        <div>
-          <h3 className="text-xl font-semibold leading-7 text-gray-900">
-            {user.name}
-          </h3>
-          <p className="mt-1 text-sm leading-6 text-gray-500">
-            Personal details
-          </p>
-        </div>
-        <div className="mt-4 border-t border-gray-100">
-          <dl className="divide-y divide-gray-100">
-            <div className="py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-0">
-              <dt className="text-sm font-medium leading-6 text-gray-600">
-                Full name
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-900 sm:col-span-2">
-                {user.name}
-              </dd>
-            </div>
-            <div className="py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-0">
-              <dt className="text-sm font-medium leading-6 text-gray-600">
-                Designation
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-900 sm:col-span-2">
-                {user.designation}
-              </dd>
-            </div>
-            <div className="py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-0">
-              <dt className="text-sm font-medium leading-6 text-gray-600">
-                Email address
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-900 sm:col-span-2">
-                {user.email}
-              </dd>
-            </div>
-            <div className="py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:py-0">
-              <dt className="text-sm font-medium leading-6 text-gray-600">
-                Blogs Posted
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-900 sm:col-span-2">
-                {user.blogs}
-              </dd>
-            </div>
-          </dl>
+      <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+        <img
+          src={user.image} // Updated image dimensions
+          alt="Profile"
+          className="w-24 h-24 rounded-full mx-auto mb-4" // Updated image dimensions
+        />
+        <h2 className="text-3xl font-semibold text-gray-800 mb-2">{user.name}</h2>
+        <p className="text-gray-600 mb-4">{user.designation}</p>
+        <div className="grid grid-rows-2 gap-4">
+          <div>
+            <p className="text-gray-700 font-semibold mb-2">Email:</p>
+            <p className="text-gray-600">{user.email}</p>
+          </div>
+          <div>
+            <p className="text-gray-700 font-semibold mb-2">Blogs Posted:</p>
+            <p className="text-gray-600">{user.blogs}</p>
+          </div>
         </div>
       </div>
+    </div>
     </>
   );
 }
+
+// src/components/Profile.js
+// "use client"
+// // src/components/Profile.js
+
+// import React from 'react';
+
+// const Profile = () => {
+//   return (
+//     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+//       <div className="bg-white p-8 rounded-lg shadow-md w-96">
+//         <img
+//           src="https://placekitten.com/300/300" // Updated image dimensions
+//           alt="Profile"
+//           className="w-24 h-24 rounded-full mx-auto mb-4" // Updated image dimensions
+//         />
+//         <h2 className="text-3xl font-semibold text-gray-800 mb-2">Your Name</h2>
+//         <p className="text-gray-600 mb-4">Web Developer</p>
+//         <div className="grid grid-cols-2 gap-4">
+//           <div>
+//             <p className="text-gray-700 font-semibold mb-2">Email:</p>
+//             <p className="text-gray-600">your.email@example.com</p>
+//           </div>
+//           <div>
+//             <p className="text-gray-700 font-semibold mb-2">Location:</p>
+//             <p className="text-gray-600">City, Country</p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Profile;
+
+

@@ -24,6 +24,8 @@ interface _active_tab {
   tab: number;
 }
 
+const API_HOST = process.env.API_HOST
+
 export default function Navbar({ tab }: _active_tab) {
   const router = useRouter();
   const [user, setUser] = useState("");
@@ -45,7 +47,7 @@ export default function Navbar({ tab }: _active_tab) {
   const logout = async () => {
     try {
       localStorage.removeItem("token");
-      const res = await axios.post("http://localhost:8080/auth/logout-user");
+      const res = await axios.post(`${API_HOST}/auth/logout-user`);
       if (!res.data.status) {
         toast("Logged Out Successfull", {
           type: "success",
@@ -70,7 +72,7 @@ export default function Navbar({ tab }: _active_tab) {
       router.push("/login");
       return;
     }
-    const res = await axios.get("http://localhost:8080/user/id", {
+    const res = await axios.get(`${API_HOST}/user/id`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
