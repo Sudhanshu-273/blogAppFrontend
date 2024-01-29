@@ -4,7 +4,7 @@ import React from 'react'
 
 const Nav = () => {
   return (
-    <Navbar />
+    <Navbar tab={0} />
   )
 }
 

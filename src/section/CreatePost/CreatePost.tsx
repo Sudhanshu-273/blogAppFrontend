@@ -51,9 +51,10 @@ export default function CreatePost() {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log("Data - ", res.data);
       postSuccessToast();
-      console.log(res.data);
     } catch (error) {
+      console.log(error)
       postFailedToast();
     }
   };
@@ -103,7 +104,7 @@ export default function CreatePost() {
                 <input
                   id="title"
                   name="title"
-                  type="title"
+                  type="text"
                   autoComplete="title"
                   onChange={(e) =>
                     setPost({
@@ -204,7 +205,7 @@ export default function CreatePost() {
                 <textarea
                   id="description"
                   name="description"
-                  autoComplete="date"
+                  autoComplete="description"
                   onChange={(e) =>
                     setPost({
                       ...post,
